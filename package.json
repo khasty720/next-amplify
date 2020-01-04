@@ -9,6 +9,7 @@
     "export": "npm run build && next export"
   },
   "dependencies": {
+    "aws-amplify": "^2.2.1",
     "next": "9.1.6",
     "next-manifest": "^3.0.1",
     "react": "16.12.0",

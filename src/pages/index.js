@@ -1,6 +1,25 @@
 import React from 'react'
 import Head from 'next/head'
+import Amplify, { Auth, JS } from 'aws-amplify'
 import Nav from '../components/nav'
+import config from '../aws-exports'
+
+JS.browserOrNode = function () {
+  const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
+  const isNode = typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
+  return {
+    isBrowser: isBrowser,
+    isNode: isNode
+  };
+};
+
+Amplify.configure(config)
+
+const signOut = () =>{
+  Auth.signOut()
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+};
 
 const Home = () => (
   <div>
@@ -18,10 +37,13 @@ const Home = () => (
       </p>
 
       <div className="row">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
+        <a href="#" className="card" onClick={() => Auth.federatedSignIn()}>
+          <h3>Sign In &rarr;</h3>
         </a>
+        <a href="#" className="card" onClick={() => signOut()}>
+          <h3>Sign Out &rarr;</h3>
+        </a>
+
         <a href="https://nextjs.org/learn" className="card">
           <h3>Next.js Learn &rarr;</h3>
           <p>Learn about Next.js by following an interactive tutorial!</p>

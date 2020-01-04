@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"nextamplify1b005065": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
