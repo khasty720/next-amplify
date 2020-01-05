@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "nextamplify1b005065_identitypool_1b005065",
+    "identityPoolName": "nextamplify8a6b6b07_identitypool_8a6b6b07",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "nextam1b005065",
-    "userPoolName": "nextamplify1b005065_userpool_1b005065",
+    "resourceNameTruncated": "nextam8a6b6b07",
+    "userPoolName": "nextamplify8a6b6b07_userpool_8a6b6b07",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,9 +28,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "nextam1b005065_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "nextam8a6b6b07_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "nextamplify1b005065",
+    "resourceName": "nextamplify8a6b6b07",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -47,14 +47,14 @@
     "useDefault": "defaultSocial",
     "hostedUI": true,
     "triggers": "{}",
-    "hostedUIDomainName": "nextamplify1b005065-1b005065",
+    "hostedUIDomainName": "next-amplify-develop8a6b6b07-8a6b6b07",
     "authProvidersUserPool": [],
     "hostedUIProviderMeta": "[]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://staging.d14n1aw6r9zhl8.amplifyapp.com/\"],\"LogoutURLs\":[\"https://staging.d14n1aw6r9zhl8.amplifyapp.com/\"]}",
     "userPoolGroupList": [],
     "parentStack": {
         "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "dependsOn": []
+    "dependsOn": [],
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:8080/\"],\"LogoutURLs\":[\"http://localhost:8080/\"]}"
 }

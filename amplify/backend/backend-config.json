@@ -1,9 +1,9 @@
 {
-	"auth": {
-		"nextamplify1b005065": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
-		}
-	}
+    "auth": {
+        "nextamplify8a6b6b07": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": []
+        }
+    }
 }
