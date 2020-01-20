@@ -36,7 +36,7 @@ const Index = () => {
             </thead>
             <tbody>
               { devices.map((device) => (
-                <tr>
+                <tr key={`row-${device.id}`}>
                   <td>{device.id}</td>
                   <td>{device.name}</td>
                   <td>{device.particleDeviceId}</td>
@@ -61,7 +61,7 @@ const Index = () => {
             </thead>
             <tbody>
               { events.map((event) => (
-                <tr>
+                <tr key={`row-${event.id}`}>
                   <td>{event.data.event}</td>
                   <td>{event.data.data}</td>
                   <td>{event.data.coreid}</td>
