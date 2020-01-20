@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 import {
   Collapse,
@@ -11,8 +11,11 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap';
+import { AppContext } from './AppContext';
+import { signOut } from '../../utils/auth';
 
 const Navbar = () => {
+  const { user } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -31,18 +34,15 @@ const Navbar = () => {
           </NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
-                Options
+              { (user && user.username) || 'Profile'}
             </DropdownToggle>
             <DropdownMenu right>
               <DropdownItem>
                   Option 1
               </DropdownItem>
-              <DropdownItem>
-                  Option 2
-              </DropdownItem>
               <DropdownItem divider />
-              <DropdownItem>
-                  Reset
+              <DropdownItem onClick={() => signOut()}>
+                  Logout
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
