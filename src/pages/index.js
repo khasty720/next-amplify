@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import Amplify, { Auth, JS } from 'aws-amplify';
 import { Button, Row, Col } from 'reactstrap';
-import Nav from '../components/nav';
 import config from '../aws-exports';
 
 JS.browserOrNode = () => {
@@ -23,7 +22,6 @@ const signOut = () => {
 
 const Home = () => (
   <Fragment>
-    <Nav />
     <Row className="m-5">
       <Col md="6" className="text-center">
         <Button color="primary" onClick={() => Auth.federatedSignIn()}>Sign In</Button>
