@@ -1,3 +1,11 @@
 const withSass = require('@zeit/next-sass');
+const withCSS = require('@zeit/next-css');
 
-module.exports = withSass();
+global.navigator = () => null;
+if (typeof require !== 'undefined') {
+  require.extensions['.less'] = () => {};
+  require.extensions['.css'] = () => {};
+}
+module.exports = withCSS(
+  withSass(),
+);
