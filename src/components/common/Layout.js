@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container } from 'reactstrap';
 
 const Layout = ({ children }) => (
-  <Container>
-    {children}
-  </Container>
+  <div className="app__container">
+    <div className="app__content">
+      {children}
+    </div>
+  </div>
 );
 
 Layout.propTypes = {
