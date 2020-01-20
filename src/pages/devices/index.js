@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Table, Card, CardBody } from 'reactstrap';
 import { API, graphqlOperation } from 'aws-amplify';
 import useSWR from 'swr';
 import { listDevices, listEvents } from '../../graphql/queries';
@@ -23,14 +24,54 @@ const Index = () => {
   return (
     <Fragment>
       <h3>Devices:</h3>
-      <ul>
-        { devices.map((device) => <li>{JSON.stringify(device)}</li>) }
-      </ul>
+      <Card className="mb-3">
+        <CardBody>
+          <Table striped>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Particle Device ID</th>
+              </tr>
+            </thead>
+            <tbody>
+              { devices.map((device) => (
+                <tr>
+                  <td>{device.id}</td>
+                  <td>{device.name}</td>
+                  <td>{device.particleDeviceId}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </CardBody>
+      </Card>
 
       <h3>Events:</h3>
-      <ul>
-        { events.map((event) => <li>{JSON.stringify(event)}</li>) }
-      </ul>
+      <Card>
+        <CardBody>
+          <Table striped>
+            <thead>
+              <tr>
+                <th>event</th>
+                <th>data</th>
+                <th>coreid</th>
+                <th>published_at</th>
+              </tr>
+            </thead>
+            <tbody>
+              { events.map((event) => (
+                <tr>
+                  <td>{event.data.event}</td>
+                  <td>{event.data.data}</td>
+                  <td>{event.data.coreid}</td>
+                  <td>{event.data.published_at}</td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
+        </CardBody>
+      </Card>
     </Fragment>
   );
 };
