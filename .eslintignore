@@ -3,3 +3,4 @@ coverage/
 .next/
 public/
 out/
+aws-exports.js
