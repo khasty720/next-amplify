@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ToastContainer } from 'react-toastify';
 import AppProvider from './AppContext';
 
 const AppWrapper = ({ children, appContext }) => (
@@ -7,6 +8,7 @@ const AppWrapper = ({ children, appContext }) => (
     <AppProvider value={appContext}>
       { children }
     </AppProvider>
+    <ToastContainer position="bottom-right" hideProgressBar />
   </div>
 );
 
