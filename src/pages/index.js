@@ -1,36 +1,24 @@
 import React, { Fragment } from 'react';
-import Amplify, { Auth, JS } from 'aws-amplify';
-import { Button, Row, Col } from 'reactstrap';
-import config from '../aws-exports';
+import { Button, Jumbotron, Card, CardBody } from 'reactstrap';
+import { HeadInfo } from '../components/common';
 
-JS.browserOrNode = () => {
-  const isBrowser = typeof window !== 'undefined' && typeof window.document !== 'undefined';
-  const isNode = typeof process !== 'undefined' && process.versions != null && process.versions.node != null;
-  return {
-    isBrowser,
-    isNode,
-  };
-};
-
-Amplify.configure(config);
-
-const signOut = () => {
-  Auth.signOut()
-    .then((data) => console.log(data))
-    .catch((err) => console.log(err));
-};
-
-const Home = () => (
+const Index = () => (
   <Fragment>
-    <Row className="m-5">
-      <Col md="6" className="text-center">
-        <Button color="primary" onClick={() => Auth.federatedSignIn()}>Sign In</Button>
-      </Col>
-      <Col md="6" className="text-center">
-        <Button color="primary" onClick={() => signOut()}>Sign Out</Button>
-      </Col>
-    </Row>
+    <HeadInfo />
+    <Card>
+      <CardBody>
+        <Jumbotron>
+          <h1 className="display-3">Hello, world!</h1>
+          <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+          <hr className="my-2" />
+          <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+          <p className="lead">
+            <Button color="primary">Learn More</Button>
+          </p>
+        </Jumbotron>
+      </CardBody>
+    </Card>
   </Fragment>
 );
 
-export default Home;
+export default Index;
