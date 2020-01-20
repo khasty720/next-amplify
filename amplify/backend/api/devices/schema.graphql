@@ -1,0 +1,18 @@
+type Device @model {
+  id: ID!
+  name: String!
+  particleDeviceId: String!
+  events: [Event] @connection(name: "DeviceEvents")
+}
+type Event @model {
+  id: ID!
+  data: EventData
+  device: Device @connection(name: "DeviceEvents")
+}
+
+type EventData {
+  event: String!
+  data: String!
+  coreid: String!
+  published_at: String!
+}
